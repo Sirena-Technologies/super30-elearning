@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SUPER 30 E-Learning</title>
+<link rel="icon" href="assets/sirena-logo.png">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;700;800&display=swap">
+<style>
+:root{--red:#be1e2d;--ink:#1b1718;--muted:#6a6264;--mist:#f7f2f2;--line:#ebdfe1}
+*{box-sizing:border-box}
+body{margin:0;font-family:Nunito,system-ui,sans-serif;color:var(--ink);background:#fff;line-height:1.55}
+.wrap{max-width:1040px;margin:0 auto;padding:28px max(16px,env(safe-area-inset-left))}
+header{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+header img{height:56px}
+header span{font-family:"JetBrains Mono",monospace;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;color:var(--red);font-weight:700}
+.hero{display:grid;grid-template-columns:1.3fr .7fr;gap:24px;align-items:center;margin:28px 0}
+h1,h2{font-family:Fredoka,"Segoe UI",sans-serif;margin:0;line-height:1.1}
+h1{font-size:clamp(2rem,5vw,3.2rem)}
+.hero p{font-size:1.15rem;color:var(--muted);margin:.8rem 0 0}
+.hero img{width:100%;max-width:300px;justify-self:center}
+.cards{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+a.card{display:flex;flex-direction:column;gap:10px;padding:24px;border-radius:20px;background:var(--mist);color:inherit;text-decoration:none;border:3px solid transparent;transition:border-color .2s,transform .2s}
+a.card:hover,a.card:focus-visible{border-color:var(--red);transform:translateY(-3px);outline:none}
+a.card.red{background:var(--red);color:#fff}
+.tag{align-self:flex-start;font-size:.75rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;background:#fff;color:var(--red);padding:4px 10px;border-radius:999px}
+.go{margin-top:auto;font-weight:800}
+footer{margin-top:36px;padding-top:16px;border-top:2px solid var(--line);font-size:.9rem;color:var(--muted)}
+@media (max-width:720px){.hero,.cards{grid-template-columns:1fr}.hero img{max-width:200px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header><img src="assets/sirena-logo.png" alt="Sirena"><span>SUPER 30 · Volume 1</span></header>
+  <section class="hero">
+    <div>
+      <h1>Module 1: Introduction to Robotics and Industry Landscape</h1>
+      <p>Learn what a robot is, how robots evolved, the chips that run them, the main robot families, the robotics industry, and the Sirena robots you'll use in the lab.</p>
+    </div>
+    <img src="assets/nino.png" alt="NINO humanoid robot illustration">
+  </section>
+  <div class="cards">
+    <a class="card red" href="introduction-to-robotics.html">
+      <span class="tag">Option 1 · E-learning module</span>
+      <h2>Read &amp; practise</h2>
+      <p>7 lessons with simulators, drag-and-match activities, knowledge checks, flashcards and a final assessment.</p>
+      <span class="go">Open the module →</span>
+    </a>
+    <a class="card" href="introduction-to-robotics-presentation.html">
+      <span class="tag">Option 2 · Interactive presentation</span>
+      <h2>Watch &amp; learn</h2>
+      <p>70 animated screens with narration, read-aloud, sound effects and quiz checkpoints. Best on a laptop or projector.</p>
+      <span class="go">Start the presentation →</span>
+    </a>
+  </div>
+  <footer>Sirena Technologies · SUPER 30 programme. Progress is saved in your own browser.</footer>
+</div>
+</body>
+</html>
