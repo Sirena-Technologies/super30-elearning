@@ -268,6 +268,7 @@ details.ans textarea{width:100%;min-height:70px;border:1px solid var(--line);bor
   .rail-note{display:none}
 }
 @media (max-width:520px){.sta{grid-template-columns:1fr}}
+@media (max-width:600px){.top{position:static}.logo{height:34px}.brand strong{font-size:1rem}.prog{flex:1 1 100%}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 </style>
 </head>
@@ -984,6 +985,7 @@ function show(id,scroll=true){
 document.addEventListener("click",e=>{const b=e.target.closest("[data-go]");if(b){show(b.dataset.go);}});
 updateProgress();
 show((location.hash||"").slice(1)||"overview",false);
+window.addEventListener("hashchange",()=>{const id=(location.hash||"").slice(1);if(id&&!document.getElementById(id)?.hidden===false)show(id);});
 
 /* ---------- quizzes ---------- */
 const QUIZ={
@@ -1076,8 +1078,8 @@ $$("[data-quiz]").forEach(box=>{
 /* ---------- canvas helper ---------- */
 const canvases=[];
 function setupCanvas(cv,draw){
-  const st={cv,ctx:cv.getContext("2d"),w:0,h:0,draw};
-  const fit=()=>{const r=cv.getBoundingClientRect();if(!r.width)return;const dpr=window.devicePixelRatio||1;st.w=r.width;st.h=+cv.getAttribute("height");cv.style.height=st.h+"px";cv.width=Math.round(r.width*dpr);cv.height=Math.round(st.h*dpr);st.ctx.setTransform(dpr,0,0,dpr,0,0);draw(st);};
+  const H0=+cv.getAttribute("height")||240;cv.style.height=H0+"px";const st={cv,ctx:cv.getContext("2d"),w:0,h:H0,draw};
+  const fit=()=>{const r=cv.getBoundingClientRect();if(!r.width)return;const dpr=window.devicePixelRatio||1;const pw=Math.round(r.width*dpr),ph=Math.round(H0*dpr);st.w=r.width;st.h=H0;if(cv.width===pw&&cv.height===ph){draw(st);return;}cv.width=Math.round(r.width*dpr);cv.height=Math.round(st.h*dpr);st.ctx.setTransform(dpr,0,0,dpr,0,0);draw(st);};
   try{new ResizeObserver(fit).observe(cv);}catch(e){window.addEventListener("resize",fit);}
   st.fit=fit;canvases.push(st);return st;
 }
